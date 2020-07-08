@@ -1,21 +1,7 @@
-FROM ubuntu:18.04
-MAINTAINER a8568730
-
-RUN apt update && apt install -y cmake python git
-
-# Build librime
-WORKDIR /
-RUN git clone --recursive https://github.com/rime/librime.git
-WORKDIR librime/
-
-RUN sed -i 's/sudo //g' travis-install-linux.sh
-RUN bash -eux travis-install-linux.sh
-
+FROM i3thuan5/rime-taigi-testing-env:kati
+RUN git remote add i3thuan5 https://github.com/i3thuan5/librime.git
+RUN git fetch i3thuan5 taibun
+RUN git checkout i3thuan5/taibun
 RUN make
 RUN make debug
 
-# Install Python Behave
-RUN apt-get install -y python3 python3-pip
-RUN pip3 install behave
-## https://github.com/docker-library/python/blob/f82205cde8f0a5ffa276103a50d843edced67757/3.5/stretch/Dockerfile#L12-L14
-ENV LANG C.UTF-8
