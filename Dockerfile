@@ -5,7 +5,7 @@ RUN apt update && apt install -y cmake python git
 
 # Build librime
 WORKDIR /
-RUN git clone --recursive https://github.com/rime/librime.git
+RUN git clone --recursive https://github.com/i3thuan5/librime.git
 WORKDIR librime/
 
 RUN sed -i 's/sudo //g' travis-install-linux.sh
