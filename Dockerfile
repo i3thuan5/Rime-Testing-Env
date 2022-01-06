@@ -1,7 +1,6 @@
-FROM ubuntu:18.04
-MAINTAINER a8568730
+FROM ubuntu:20.04
 
-RUN apt update && apt install -y cmake python git
+RUN apt update && DEBIAN_FRONTEND=noninteractive TZ=Asia/Taipei apt install -y cmake git
 
 # Build librime
 WORKDIR /
