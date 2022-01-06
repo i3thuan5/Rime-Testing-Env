@@ -1,11 +1,13 @@
 FROM ubuntu:20.04
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive TZ=Asia/Taipei apt install -y cmake git
+ARG DEBIAN_FRONTEND=noninteractive
+ENV TZ=ASIA/Taipei
+
+RUN apt update && apt install -y build-essential cmake python git
 
 # Build librime
-WORKDIR /
-RUN git clone --recursive https://github.com/i3thuan5/librime.git
-WORKDIR librime/
+RUN git clone --recursive https://github.com/i3thuan5/librime.git /librime/
+WORKDIR /librime/
 
 RUN sed -i 's/sudo //g' travis-install-linux.sh
 RUN bash -eux travis-install-linux.sh
