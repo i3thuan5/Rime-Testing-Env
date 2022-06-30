@@ -3,7 +3,9 @@ FROM ubuntu:20.04
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=ASIA/Taipei
 
-RUN apt update && apt install -y build-essential cmake python git
+RUN apt update \
+  && apt install -y build-essential cmake python git \
+  && apt upgrade -y
 
 # Build librime
 RUN git clone --recursive https://github.com/i3thuan5/librime.git /librime/
