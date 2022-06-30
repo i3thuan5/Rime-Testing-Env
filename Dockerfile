@@ -22,3 +22,4 @@ RUN apt-get install -y python3 python3-pip
 RUN pip3 install behave
 ## https://github.com/docker-library/python/blob/f82205cde8f0a5ffa276103a50d843edced67757/3.5/stretch/Dockerfile#L12-L14
 ENV LANG C.UTF-8
+
