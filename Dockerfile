@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 ARG DEBIAN_FRONTEND=noninteractive
 ENV TZ=ASIA/Taipei
 
-RUN apt update && apt install -y build-essential cmake python git
+RUN apt update && apt install -y git build-essential cmake python3 python-is-python3
 
 # Build librime
 RUN git clone --recursive https://github.com/i3thuan5/librime.git /librime/
